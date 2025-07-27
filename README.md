@@ -1,9 +1,10 @@
 Untenstehenden Aufgaben liegt folgendes Datenschema (Tabellen) zugrunde:
-Kunde (KundenID, Vorname, Nachname, EMail, Adresse)
-Buch (BuchID, Titel, Autor, Preis, Lagerbestand)
-Bestellung (BestID, KundenID, Betrag, Rabatt, MWSt, BestDatum, LiefDatum)
-Bestellposition (BestellPosID, BestID, BuchID, MWStID, Menge, PreisProStueck, Rabatt)
-MWSt (MWStID, MWSt_Satz)
+
+- Kunde (KundenID, Vorname, Nachname, EMail, Adresse)
+- Buch (BuchID, Titel, Autor, Preis, Lagerbestand)
+- Bestellung (BestID, KundenID, Betrag, Rabatt, MWSt, BestDatum, LiefDatum)
+- Bestellposition (BestellPosID, BestID, BuchID, MWStID, Menge, PreisProStueck, Rabatt)
+- MWSt (MWStID, MWSt_Satz)
 
 Für die Syntax von SQL gilt der Standard in MySQL v8.x
 
