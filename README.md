@@ -8,8 +8,6 @@ Untenstehenden Aufgaben liegt folgendes Datenschema (Tabellen) zugrunde:
 
 Für die Syntax von SQL gilt der Standard in MySQL v8.x
 
----
-
 ## Warum braucht Bestellung auch ein Feld MWSt?
 
 Bestellung (BestID, KundenID, Betrag, Rabatt, MWSt, BestDatum, LiefDatum)
