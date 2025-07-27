@@ -1,0 +1,50 @@
+CREATE DATABASE BuchShop;
+USE BuchShop;
+
+CREATE TABLE Kunde(
+    KundenID INT AUTO_INCREMENT,
+    Vorname VARCHAR(50) NOT NULL,
+    Nachname VARCHAR(50) NOT NULL,
+    Adresse VARCHAR(50) NOT NULL,
+    EMail VARCHAR(50),
+    PRIMARY KEY (KundenID)
+);
+
+CREATE TABLE Buch(
+    BuchID INT AUTO_INCREMENT,
+    Titel VARCHAR(50) NOT NULL,
+    Autor VARCHAR(50) NOT NULL,
+    Preis DECIMAL(10, 2) NOT NULL,
+    Lagerbestand INT NOT NULL,
+    PRIMARY KEY (BuchID)
+);
+
+CREATE TABLE MWSt(
+    MWStID INT AUTO_INCREMENT,
+    MWSt_Satz DECIMAL(5,2) NOT NULL,
+    PRIMARY KEY (MWStID)
+);
+
+CREATE TABLE Bestellung(
+    BestID INT AUTO_INCREMENT,
+    KundenID INT NOT NULL,
+    Betrag DECIMAL(10,2) NOT NULL,
+    BestDatum DATE NOT NULL,
+    LiefDatum DATE,
+    PRIMARY KEY (BestID),
+    FOREIGN KEY (KundenID) REFERENCES Kunde(KundenID)
+);
+
+CREATE TABLE Bestellposition(
+    BestellPosID INT AUTO_INCREMENT,
+    BestID INT NOT NULL,
+    BuchID INT NOT NULL,
+    MWStID INT NOT NULL,
+    Menge INT NOT NULL,
+    PreisProStueck DECIMAL(10, 2) NOT NULL,
+    Rabatt DECIMAL(5,2) DEFAULT 0.00,
+    PRIMARY KEY (BestellPosID),
+    FOREIGN KEY (BestID) REFERENCES Bestellung(BestID),
+    FOREIGN KEY (BuchID) REFERENCES Buch(BuchID),
+    FOREIGN KEY (MWStID) REFERENCES MWSt(MWStID)
+);
